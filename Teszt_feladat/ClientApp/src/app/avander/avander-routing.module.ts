@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TaskComponent } from './task/task.component';
+import { DisplayMeasurementsComponent } from './displayMeasurements/displayMeasurements.component';
 import { UploadComponent } from './upload/upload.component';
 
 const routes: Routes = [
   {
-    path: 'task',
-    component: TaskComponent
+    path: 'displayMeasurements',
+    component: DisplayMeasurementsComponent
   },
   {
     path: 'upload',

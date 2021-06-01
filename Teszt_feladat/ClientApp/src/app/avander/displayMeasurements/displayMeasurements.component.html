@@ -1,0 +1,76 @@
+<mat-card class="mt-5">
+  <div class="row pt-3 justify-content-center">
+    <div class="col-auto">
+      <h2>Mérési eredmények</h2>
+    </div>
+  </div>
+  <div class="row pt-3" [formGroup]="filters">
+    <mat-form-field class="col">
+      <input matInput [formControlName]="'jsn'" placeholder="Keresés JSN-ben" />
+    </mat-form-field>
+    <mat-form-field class="col">
+      <mat-label>Állomások</mat-label>
+      <mat-select [formControlName]="'shop'">
+        <mat-option value="">Mind</mat-option>
+        <mat-option *ngFor="let shop of shopFilterOptions | async" [value]="shop.shopId">{{shop.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="col">
+      <mat-label>Keresés intervallumban</mat-label>
+      <mat-date-range-input [formGroupName]="'interval'" [rangePicker]="picker">
+        <input matStartDate formControlName="start" placeholder="Időszak kezdete">
+        <input matEndDate formControlName="end" placeholder="Időszak vége">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
+  </div>
+  <div class="row justify-content-center pt-3">
+    <div class="col mat-elevation-z2">
+      <table mat-table [dataSource]="filteredMeasurements" class="w-100">
+        <ng-container matColumnDef="jsn">
+          <th mat-header-cell *matHeaderCellDef> JSN </th>
+          <td mat-cell *matCellDef="let measurement"> {{measurement.vechicle.jsn}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="vechicleModel">
+          <th mat-header-cell *matHeaderCellDef> Alkatrész</th>
+          <td mat-cell *matCellDef="let measurement"> {{measurement.vechicle.model}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="shopName">
+          <th mat-header-cell *matHeaderCellDef> Állomás </th>
+          <td mat-cell *matCellDef="let measurement"> {{measurement.shop.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="measurementPointName">
+          <th mat-header-cell *matHeaderCellDef> Mérési pont </th>
+          <td mat-cell *matCellDef="let measurement"> {{measurement.measurementPoint.name}} </td>
+        </ng-container>
+        <ng-container matColumnDef="date">
+          <th mat-header-cell *matHeaderCellDef> Dátum </th>
+          <td mat-cell *matCellDef="let measurement"> {{measurement.date | date: 'yyyy.MM.dd, h:mm:ss'}} </td>
+        </ng-container>
+        <ng-container matColumnDef="gap">
+          <th mat-header-cell *matHeaderCellDef> Gap </th>
+          <td mat-cell *matCellDef="let measurement"> {{measurement.gap}} </td>
+        </ng-container>
+        <ng-container matColumnDef="flush">
+          <th mat-header-cell *matHeaderCellDef> Flush </th>
+          <td mat-cell *matCellDef="let measurement"> {{measurement.flush}} </td>
+        </ng-container>
+        <ng-container matColumnDef="details">
+          <th mat-header-cell *matHeaderCellDef> Részletek </th>
+          <td mat-cell *matCellDef="let measurement">
+            <button mat-icon-button color="primary" (click)="onDetailsClick(measurement)"><mat-icon>description</mat-icon></button>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[10, 50, 100]" color="primary" showFirstLastButtons></mat-paginator>
+    </div>
+  </div>
+</mat-card>

@@ -10,7 +10,7 @@ namespace Teszt_feladat.DTO
         
         public int Id { get; set; }
 
-        public VechileModel Vechicle { get; set; }
+        public VechicleModel Vechicle { get; set; }
 
         public ShopModel Shop { get; set; }
 

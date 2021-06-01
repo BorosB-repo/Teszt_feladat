@@ -1,7 +1,7 @@
-export interface VechilceModel {
+export interface VechicleModel {
   id: number,
-  jSN: string,
-  vechilceModel: string
+  jsn: string,
+  model: string
 }
 
 export interface ShopModel {
@@ -16,10 +16,15 @@ export interface MeasurementPointModel {
 
 export interface MeasurementModel {
   id: number,
-  vechicle: VechilceModel,
+  vechicle: VechicleModel,
   shop: ShopModel,
   measurementPoint: MeasurementPointModel,
   date: Date,
   gap: number | null,
   flush: number | null,
+}
+
+export interface ApiResult {
+  isSuccess: boolean,
+  message: string
 }

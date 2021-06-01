@@ -1,1 +1,20 @@
-<p>upload works!</p>
+<mat-card class="mt-5">
+  <div class="row pt-3 justify-content-center">
+    <div class="col-auto">
+      <h2>Fájlok feltöltése</h2>
+    </div>
+  </div>
+  <div class="row justify-content-center">
+    <button mat-raised-button class="col-6" color="primary" (click)="fileInput.click()">Tallózás</button>
+  </div>
+  <div class="row pt-3 justify-content-center align-items-center" *ngFor="let file of selectedFiles | async">
+    <div class="col-auto">
+      <h4>{{file.name}}</h4>
+    </div>
+    <button mat-icon-button class="col-auto" color="warn" (click)="splicerSubject.next(file.name)"><mat-icon>delete</mat-icon></button>
+  </div>
+  <div class="row pt-5 justify-content-center" *ngIf="selectedFiles">
+    <button mat-raised-button class="col-auto" color="primary" (click)="readAndUploadFiles()" [disabled]="disableUploadButton | async">Fájlok beolvasása, és az adatok feltöltése</button>
+  </div>
+</mat-card>
+<input type="file" style="display:none" #fileInput multiple (change)="onChange($event)" />

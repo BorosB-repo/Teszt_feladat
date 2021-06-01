@@ -1,0 +1,66 @@
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-auto">
+      <h2>Mérés adatai</h2>
+    </div>
+  </div>
+  <div class="row pt-3">
+    <div class="col-4">
+      <span class="ms-auto"><b>JSN:</b></span>
+    </div>
+    <div class="col">
+      {{measurement?.vechicle?.jsn}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <span class="ms-auto"><b>Alkatrész:</b></span>
+    </div>
+    <div class="col">
+      {{measurement?.vechicle?.model}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <span class="ms-auto"><b>Állomás:</b></span>
+    </div>
+    <div class="col">
+      {{measurement?.shop?.name}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <span class="ms-auto"><b>Mérési pont:</b></span>
+    </div>
+    <div class="col">
+      {{measurement?.measurementPoint?.name}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <span class="ms-auto"><b>Dátum:</b></span>
+    </div>
+    <div class="col">
+      {{measurement?.date | date: 'yyyy.MM.dd, h:mm:ss'}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <span class="ms-auto"><b>Gap:</b></span>
+    </div>
+    <div class="col">
+      {{measurement?.gap}}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-4">
+      <span class="ms-auto"><b>Flush:</b></span>
+    </div>
+    <div class="col">
+      {{measurement?.flush}}
+    </div>
+  </div>
+  <div class="row justify-content-center pt-3">
+    <button mat-raised-button color="primary" class="col-6" (click)="onCloseClick()">Bezárás</button>
+  </div>
+</div>

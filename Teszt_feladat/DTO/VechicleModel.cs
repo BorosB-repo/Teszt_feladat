@@ -5,11 +5,11 @@ using System.Threading.Tasks;
 
 namespace Teszt_feladat.DTO
 {
-    public class VechileModel
+    public class VechicleModel
     {
         
         public int Id { get; set; }
         public string JSN { get; set; }
-        public string VechilceModel { get; set; }
+        public string Model { get; set; }
     }
 }
