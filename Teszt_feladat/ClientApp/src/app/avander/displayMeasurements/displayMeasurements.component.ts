@@ -12,7 +12,6 @@ import { MeasurementDetailsDialog } from './measurement-details-dialog/measureme
 @Component({
   selector: 'displayMeasurements',
   templateUrl: './displayMeasurements.component.html',
-  styleUrls: ['./displayMeasurements.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DisplayMeasurementsComponent implements OnInit, AfterViewInit {

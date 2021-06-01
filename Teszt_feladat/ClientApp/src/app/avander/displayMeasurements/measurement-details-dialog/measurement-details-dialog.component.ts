@@ -4,8 +4,7 @@ import { MeasurementModel } from '../../../shared/models';
 
 @Component({
   selector: 'app-measurement-details-dialog',
-  templateUrl: './measurement-details-dialog.component.html',
-  styleUrls: ['./measurement-details-dialog.component.css']
+  templateUrl: './measurement-details-dialog.component.html'
 })
 export class MeasurementDetailsDialog {
 
