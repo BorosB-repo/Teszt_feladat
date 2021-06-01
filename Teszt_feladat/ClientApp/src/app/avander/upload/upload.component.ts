@@ -6,7 +6,7 @@ import { HttpService } from '../../shared/services/http.service';
 
 @Component({
   selector: 'app-upload',
-  templateUrl: './upload.component.html'
+  templateUrl: './upload.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class UploadComponent implements OnInit {
